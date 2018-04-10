@@ -8,6 +8,8 @@ This app was initially made as a follow-up to the final project for the Harvard 
 
 ## Preview
 
+![KogdaTeplo](https://media.giphy.com/media/8OY7QbpKRGUaNdBCyM/giphy.gif)
+
 You can [download](https://itunes.apple.com/ru/app/%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0-%D1%82%D0%B5%D0%BF%D0%BB%D0%BE/id1361989136?mt=8) the app in the Russian, Ukranian or Belorussian AppStore. It's extremely local and I didn't want to confuse non-russian users with the cyrillic interface and an idea of central heating.   
 
 ## Getting Started
