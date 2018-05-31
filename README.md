@@ -37,9 +37,9 @@ App uses URLSession and Grand Central Dispatch to fetch the data and present it 
 
 For iOS 11 and newer the default city is chosen automatically - using the CoreLocation framework and reverse geocoding.
 
-### MVVM pattern
+### MVVM architecture
 
-For the version 2.0 app was dramatically refactored migrating from MVC to MVVM (Model - View - ViewModel) architecture. 
+For the version 2.0 app was dramatically refactored migrating from MVC to MVVM architecture. 
 
 ### Spare use of time-consuming objects
 
