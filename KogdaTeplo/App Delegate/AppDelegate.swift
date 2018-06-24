@@ -37,12 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         guard let root = AppDelegate.mainViewController
             else { fatalError("Unexpected Main View Controller") }
-        
-        //reverse geocoding method works with the russian locale only in iOS 11 and newer
-        if #available(iOS 11.0, *) {
-            root.tryToRequestLocation()
-            root.lookUpCurrentLocation(completionHandler: root.updateUIWithPlacemark)
-        }
          root.fetchHeatingData()
     }
 
