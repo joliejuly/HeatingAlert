@@ -38,19 +38,15 @@ You will need XCode 9 or newer.
 
 ### Asynchronous JSON data fetch
 
-App uses URLSession and Grand Central Dispatch to fetch the data and present it to the user
-
-### Geolocation
-
-For iOS 11 and newer the default city is chosen automatically - using the CoreLocation framework and reverse geocoding.
+App uses URLSession and GCD to fetch the data and present it to the user. 
 
 ### MVVM architecture
 
-For the version 2.0 app was dramatically refactored migrating from MVC to MVVM architecture. 
+For the version 2.0 app was refactored migrating from MVC to MVVM architecture. 
 
-### Spare use of time-consuming objects
+### Spare use of heavy objects
 
-The app uses static variables that guarantees that heavy objects like DateFormatter, Calendar, AlertController, etc are created only once. To make them visible to other objects the Singleton design pattern is used - but only for that purpose. 
+The app uses static variables that guarantees that heavy objects like DateFormatter, Calendar, AlertController, and the like are created only once. 
 
 ## Built With
 
