@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVf-84-JUA">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </array>
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+        <array key="SourceSansPro-SemiBold.ttf">
+            <string>SourceSansPro-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="eb6-8R-qX3">
+            <objects>
+                <viewController storyboardIdentifier="MainScreen" id="GaQ-UW-BvB" customClass="MainViewController" customModule="KogdaTeplo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UlM-7b-ylW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-U4-R0L">
+                                <rect key="frame" x="160" y="40" width="0.0" height="100"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ONW-nt-dE6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="34"/>
+                                <color key="textColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="728" image="eadiator_circle" translatesAutoresizingMaskIntoConstraints="NO" id="i05-z6-1b1">
+                                <rect key="frame" x="-152.5" y="160" width="625" height="120"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Ube-ZB-fGW"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Q30-1E-OGp">
+                                <rect key="frame" x="30" y="320" width="260" height="123"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVa-aT-IC3">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="I0S-Ru-Yu7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="30"/>
+                                        <color key="textColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GF-E7-nnl">
+                                        <rect key="frame" x="0.0" y="88" width="260" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="z2c-Wh-LhT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="20"/>
+                                        <color key="textColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsG-FG-NQv">
+                                <rect key="frame" x="60" y="458" width="200" height="60"/>
+                                <color key="backgroundColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="IA3-DV-NED"/>
+                                    <constraint firstAttribute="height" constant="60" id="lpR-P6-lPR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="21"/>
+                                <color key="tintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="contentEdgeInsets" minX="14" minY="7" maxX="15" maxY="7"/>
+                                <state key="normal" title="ВЫБРАТЬ ГОРОД">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseCityTapped:" destination="GaQ-UW-BvB" eventType="touchUpInside" id="SCY-ws-bBC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vip-Kf-Unf" userLabel="About us button">
+                                <rect key="frame" x="16" y="160" width="288" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <color key="tintColor" red="0.32941176470588235" green="0.31372549019607843" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="aboutAreaTapped:" destination="GaQ-UW-BvB" eventType="touchUpInside" id="AeZ-9v-MZy"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gxH-mN-faf">
+                                <rect key="frame" x="142" y="329" width="37" height="37"/>
+                                <color key="color" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Ожидаем данные..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJP-iX-pYB">
+                                <rect key="frame" x="78" y="380" width="165" height="24"/>
+                                <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="19"/>
+                                <color key="textColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Q30-1E-OGp" firstAttribute="top" secondItem="i05-z6-1b1" secondAttribute="bottom" constant="40" id="0IY-oc-XYh"/>
+                            <constraint firstItem="i05-z6-1b1" firstAttribute="centerX" secondItem="UlM-7b-ylW" secondAttribute="centerX" id="0gs-jG-1C0"/>
+                            <constraint firstItem="IsG-FG-NQv" firstAttribute="centerX" secondItem="UlM-7b-ylW" secondAttribute="centerX" id="2SP-W2-1VT"/>
+                            <constraint firstItem="Agp-lP-jWh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xX4-U4-R0L" secondAttribute="trailing" constant="20" id="CtK-8U-7rn"/>
+                            <constraint firstItem="aJP-iX-pYB" firstAttribute="top" secondItem="gxH-mN-faf" secondAttribute="bottom" constant="14" id="Hlu-HK-Qs8"/>
+                            <constraint firstItem="xX4-U4-R0L" firstAttribute="centerX" secondItem="UlM-7b-ylW" secondAttribute="centerX" id="Ivt-0l-JxK"/>
+                            <constraint firstItem="Agp-lP-jWh" firstAttribute="trailing" secondItem="Q30-1E-OGp" secondAttribute="trailing" constant="30" id="MrO-vN-Lvl"/>
+                            <constraint firstItem="aJP-iX-pYB" firstAttribute="centerX" secondItem="UlM-7b-ylW" secondAttribute="centerX" id="Ocu-dA-vTb"/>
+                            <constraint firstItem="gxH-mN-faf" firstAttribute="top" secondItem="i05-z6-1b1" secondAttribute="bottom" constant="49" id="QXn-ly-4tZ"/>
+                            <constraint firstItem="Q30-1E-OGp" firstAttribute="leading" secondItem="Agp-lP-jWh" secondAttribute="leading" constant="30" id="Vq3-0z-h3L"/>
+                            <constraint firstItem="Q30-1E-OGp" firstAttribute="centerX" secondItem="UlM-7b-ylW" secondAttribute="centerX" id="WS5-Bn-Ci2"/>
+                            <constraint firstItem="xX4-U4-R0L" firstAttribute="top" secondItem="Agp-lP-jWh" secondAttribute="top" constant="20" id="WuL-oe-Zdo"/>
+                            <constraint firstItem="Agp-lP-jWh" firstAttribute="bottom" secondItem="IsG-FG-NQv" secondAttribute="bottom" constant="50" id="bI1-rP-S9K"/>
+                            <constraint firstItem="i05-z6-1b1" firstAttribute="top" secondItem="xX4-U4-R0L" secondAttribute="bottom" constant="20" id="cUd-Tk-EbR"/>
+                            <constraint firstItem="xX4-U4-R0L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Agp-lP-jWh" secondAttribute="leading" constant="20" id="dCi-Rd-Xgm"/>
+                            <constraint firstItem="gxH-mN-faf" firstAttribute="centerX" secondItem="UlM-7b-ylW" secondAttribute="centerX" id="qbj-e0-Jb0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Agp-lP-jWh"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1xY-Xf-Hbr" appends="YES" id="hta-P7-ZBS"/>
+                            <outletCollection property="gestureRecognizers" destination="2ND-qq-POu" appends="YES" id="bFM-Bu-z0c"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="3mB-f3-BSJ"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="gxH-mN-faf" id="wDT-zj-n3A"/>
+                        <outlet property="city" destination="xX4-U4-R0L" id="VyV-2e-l2y"/>
+                        <outlet property="daysRemained" destination="9GF-E7-nnl" id="gxG-gn-2Qz"/>
+                        <outlet property="heatingDate" destination="AVa-aT-IC3" id="7Ue-6k-xMf"/>
+                        <outlet property="mainScreenData" destination="Q30-1E-OGp" id="OZf-Lo-6R4"/>
+                        <outlet property="otherCityButton" destination="IsG-FG-NQv" id="Peo-aC-D2F"/>
+                        <outlet property="radiator" destination="vip-Kf-Unf" id="af1-8z-bWg"/>
+                        <outlet property="waitingLabel" destination="aJP-iX-pYB" id="NHI-rH-nHT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4D0-zI-k0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="1xY-Xf-Hbr">
+                    <connections>
+                        <action selector="swipeGestureOccured:" destination="GaQ-UW-BvB" id="Vyd-w1-Bsn"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="2ND-qq-POu">
+                    <connections>
+                        <action selector="swipeGestureOccured:" destination="GaQ-UW-BvB" id="36H-XD-wCV"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2801.25" y="51.760563380281688"/>
+        </scene>
+        <!--Как это работает-->
+        <scene sceneID="Trb-n1-YpF">
+            <objects>
+                <tableViewController storyboardIdentifier="AboutScreen" modalPresentationStyle="currentContext" id="7on-MF-aZt" customClass="AboutViewController" customModule="KogdaTeplo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="rCq-GA-pj2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Как строится прогноз" id="qwL-2e-Zdx">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="zEU-uL-ZXj">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zEU-uL-ZXj" id="aZo-vA-0Hf">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-HT-2Ye">
+                                                    <rect key="frame" x="31" y="0.0" width="265" height="197"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <string key="text">Наш алгоритм опирается на Постановление Правительства РФ №354 от 06 мая 2011 года, согласно которому отопление включают, если в течение пяти дней среднесуточная температура будет ниже +8°С, и, наоборот, отключают, когда она составит выше +8°С.</string>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Источник данных о погоде" id="kop-Mo-obD">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="Fd5-Ih-879">
+                                        <rect key="frame" x="0.0" y="311.5" width="320" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fd5-Ih-879" id="QQm-Ii-fUE">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ely-jw-pfQ">
+                                                    <rect key="frame" x="33" y="0.0" width="265" height="173"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">Мы собираем исторические погодные данные и отслеживаем пятидневный прогноз от международного сервиса OpenWeatherMap, который обновляется каждые три часа. </string>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Однако" id="xUP-aI-JWX">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="PcQ-Os-4PV">
+                                        <rect key="frame" x="0.0" y="557.5" width="320" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PcQ-Os-4PV" id="hCY-m1-Yuw">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBG-Fj-ixs">
+                                                    <rect key="frame" x="33" y="0.0" width="265" height="204"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">К счастью, часто отопление включают на несколько дней раньше нормы по решению местных властей. Поэтому дата, которую вы видите в приложении, может не совпасть с реальной датой включения или отключения отопления.  </string>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Команда" id="D5i-Xp-4TI">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="400" id="jKt-PO-qYY">
+                                        <rect key="frame" x="0.0" y="813.5" width="320" height="400"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jKt-PO-qYY" id="fOh-QN-26y">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="399.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Python-разработчик / data scientist и автор идеи. Отвечает за сайт и алгоритм. " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yu6-iV-3eZ">
+                                                    <rect key="frame" x="35" y="36" width="269" height="107"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Артем Никитин" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-Rb-NSH">
+                                                    <rect key="frame" x="35" y="6" width="203" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="https://github.com/joliejuly" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9tT-gE-eko">
+                                                    <rect key="frame" x="102" y="351" width="210" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="GitHub:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WFQ-Jv-88V">
+                                                    <rect key="frame" x="35" y="351" width="73" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="https://github.com/artnikitin" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gNo-4E-uhh">
+                                                    <rect key="frame" x="102" y="138" width="210" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="GitHub:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4AN-V2-jWF">
+                                                    <rect key="frame" x="34" y="138" width="73" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="https://timnikitin.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MrP-g2-8Tm">
+                                                    <rect key="frame" x="102" y="169" width="210" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="iOS-разработчик. Отвечает за приложение." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4a9-pU-3CD">
+                                                    <rect key="frame" x="35" y="267" width="269" height="85"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Юлия Никитина" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7I-V0-kp1">
+                                                    <rect key="frame" x="35" y="236" width="203" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Блог:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kpd-nc-mSX">
+                                                    <rect key="frame" x="35" y="169" width="59" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Контакты" id="I4H-fm-new">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="250" id="Mwr-e4-F4m">
+                                        <rect key="frame" x="0.0" y="1269.5" width="320" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mwr-e4-F4m" id="0jd-hQ-VYl">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Идеи, предложения и сотрудничество: " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-zc-7hf">
+                                                    <rect key="frame" x="36" y="11" width="265" height="51"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Если что-то не работает:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bb-04-5HU">
+                                                    <rect key="frame" x="36" y="104" width="265" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="https://kogdateplo.ru" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4s0-OJ-Cin">
+                                                    <rect key="frame" x="91" y="188" width="210" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Сайт:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-6B-0YY">
+                                                    <rect key="frame" x="33" y="188" width="59" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="bugs@kogdateplo.ru" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3yj-GE-d3h">
+                                                    <rect key="frame" x="32" y="138" width="213" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="ideas@kogdateplo.ru" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aZD-oK-Vz9">
+                                                    <rect key="frame" x="33" y="61" width="213" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7on-MF-aZt" id="coo-j6-hu7"/>
+                            <outlet property="delegate" destination="7on-MF-aZt" id="N1L-FI-86s"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Как это работает" largeTitleDisplayMode="always" id="WLo-O2-cQa">
+                        <barButtonItem key="leftBarButtonItem" title="Назад " id="Obe-l1-2a5">
+                            <color key="tintColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="fip-1U-BDd" kind="unwind" identifier="dismissFromAboutSegue" unwindAction="unwindToMainViewController:" id="LqM-aj-ofo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaq-dG-nVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fip-1U-BDd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2801" y="758"/>
+        </scene>
+        <!--Ваш город-->
+        <scene sceneID="MMQ-X0-fDm">
+            <objects>
+                <tableViewController storyboardIdentifier="CitiesScreen" id="jgP-d7-nZO" customClass="CitiesTableViewController" customModule="KogdaTeplo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kmu-tm-HWg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <color key="separatorColor" red="0.32941176470588235" green="0.31372549019607843" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexColor" red="0.3294117647" green="0.31372549020000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" textLabel="m8h-kK-UZa" style="IBUITableViewCellStyleDefault" id="DHv-CW-Dtz">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DHv-CW-Dtz" id="jFr-by-oh0">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m8h-kK-UZa">
+                                            <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="30"/>
+                                            <color key="textColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="zDP-4K-bCO" kind="unwind" identifier="selectCitySegue" unwindAction="unwindToMainViewController:" id="LLK-sg-OOP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jgP-d7-nZO" id="eUz-Gl-iNg"/>
+                            <outlet property="delegate" destination="jgP-d7-nZO" id="6zh-9v-cE0"/>
+                            <outletCollection property="gestureRecognizers" destination="hFH-Oy-BH2" appends="YES" id="iPk-E5-fSK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ваш город" id="eNu-ZL-yOH">
+                        <barButtonItem key="leftBarButtonItem" title="Назад " id="9LG-Fn-C10">
+                            <color key="tintColor" red="0.26274509800000001" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="zDP-4K-bCO" kind="unwind" identifier="dismissFromCitiesSegue" unwindAction="unwindToMainViewController:" id="ct9-b9-A3L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Zap-uq-9Vu" id="zj1-gu-mqd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogE-bj-PBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zDP-4K-bCO" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="right" id="hFH-Oy-BH2">
+                    <connections>
+                        <action selector="swipeGestureOccured:" destination="jgP-d7-nZO" id="Qgb-Sc-oQf"/>
+                        <segue destination="zDP-4K-bCO" kind="unwind" identifier="touchDismissFromCitiesSegue" unwindAction="unwindToMainViewController:" id="X8W-vv-exj"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <searchDisplayController id="Zap-uq-9Vu">
+                    <connections>
+                        <outlet property="delegate" destination="jgP-d7-nZO" id="aMI-1R-pbi"/>
+                        <outlet property="searchContentsController" destination="jgP-d7-nZO" id="9UN-9g-EuL"/>
+                        <outlet property="searchResultsDataSource" destination="jgP-d7-nZO" id="Aj0-l3-AgD"/>
+                        <outlet property="searchResultsDelegate" destination="jgP-d7-nZO" id="xN7-Wr-JIu"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="3583" y="52"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AYJ-fd-uGZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bVf-84-JUA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Uuj-n9-x5i">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GaQ-UW-BvB" kind="relationship" relationship="rootViewController" id="aEV-hV-rzY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="urK-Bo-ZRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2049" y="52"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="eadiator_circle" width="625" height="625"/>
+    </resources>
+</document>
