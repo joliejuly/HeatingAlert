@@ -4,7 +4,8 @@ typealias HeatingDataCompletion = ([HeatingInfo]?) -> Void
 
 final class RequestHeatingDataController {
     
-    static let url = URL(string: "https://kogdateplo.ru/jsonforyulia")!
+    //ask me via julianikitina.ios@gmail.com to provide the url 
+    static let url = URL(string: "")!
     static let jsonDecoder = JSONDecoder()
 
     static let shared = RequestHeatingDataController()
