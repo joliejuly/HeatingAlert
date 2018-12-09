@@ -7,24 +7,30 @@
 //
 
 import Foundation
-
+enum RequestResult {
+    case success
+    case error
+}
 final class MainViewViewModel {
-    
-    //Binding closures
+    private enum PrognosisState {
+        case tooEarly
+        case tooLate
+        case actual
+        case none
+    }
     var didFinishDataRequest: ((RequestResult) -> Void)?
     
     var heatingInfos: [HeatingInfo]?
-    
     var heatingObject: HeatingInfo? {
         willSet {
             prognosisState = getPrognosisState(from: newValue)
         }
     }
-    
     var selectedCity: String? {
         willSet {
            guard let newValue = newValue,
-            let index = DataSource.shared.regionsInRussian?.index(of: newValue)
+            let index = DataSource.shared
+                .regionsInRussian?.index(of: newValue)
             else { return }
             heatingObject = heatingInfo(at: index)
         }
@@ -32,7 +38,8 @@ final class MainViewViewModel {
     
     var savedCity: String {
         guard let saved = HeatingInfo.savedCity,
-        let index = DataSource.shared.regionsInRussian?.index(of: saved)
+        let index = DataSource.shared
+            .regionsInRussian?.index(of: saved)
             else { return "Москва" }
         heatingObject = heatingInfo(at: index)
         return saved
@@ -40,96 +47,85 @@ final class MainViewViewModel {
     
     private var prognosisState = PrognosisState.none
 
-    //MARK: - Public Methods
-    
-    //fetching data
     func fetchHeatingData() {
-        RequestHeatingDataController.shared.requestHeatingData() { [weak self] response in
+        RequestHeatingDataController.shared
+            .requestHeatingData() { [weak self] response in
+            guard let self = self else { return }
             if let response = response {
-                self?.heatingInfos = response
-                self?.didFinishDataRequest?(.success)
+                self.heatingInfos = response
+                self.didFinishDataRequest?(.success)
             } else {
-                self?.didFinishDataRequest?(.error)
+                self.didFinishDataRequest?(.error)
             }
         }
     }
-    
-    //text for labels
+
     func textForCityLabel(for city: String) -> String {
-        
-        guard let index = DataSource.shared.regionsInRussian?.index(of: city),
-            let regionsInRussianForUse = DataSource.shared.regionsInRussianForUse else { return "Москва" }
-    
-        if heatingInfos == nil, let regions = DataSource.shared.regionsInRussian {
+        guard
+            let index = DataSource.shared
+            .regionsInRussian?.index(of: city),
+            let regionsInRussianForUse =
+            DataSource.shared.regionsInRussianForUse
+            else { return "Москва" }
+        if heatingInfos == nil,
+            let regions = DataSource.shared.regionsInRussian {
             return regions[index]
         }
-        
-        return cityTextWithPreposition(from: regionsInRussianForUse[index])
+        return cityTextWithPreposition(
+            from: regionsInRussianForUse[index])
     }
 
     //date label
     func dateAsString() -> String {
-        
         guard let heating = heatingObject,
             let date = heating.date else { return "" }
-
-        let stringDate = DataSource.shared.dateFormatter.string(from: date)
-        
+        let stringDate = DataSource.shared
+            .dateFormatter.string(from: date)
         switch prognosisState {
         case .none:
             return ""
         case .tooLate:
-            return tooLatePrognosis(for: heating.season, and: stringDate)
+            return tooLatePrognosis(
+                for: heating.season,
+                and: stringDate)
         case .tooEarly:
-            return tooEarlyPrognosis(for: heating.season)
+            return tooEarlyPrognosis(
+                for: heating.season)
         case .actual:
-            return prognosis(for: heating.season, and: stringDate)
+            return prognosis(
+                for: heating.season,
+                and: stringDate)
         }
     }
-    
-   
-    //days remained label
+
     func daysRemained() -> String {
-        
-        guard let heating = heatingObject else { return "" }
-        
-         //if there is a prognosis
+        guard let heating = heatingObject
+            else { return "" }
         if prognosisState == .actual {
-            guard let differenceInDays = countDifferenceInDaysBetweenToday(and: heating.date) else { return "" }
+            guard let differenceInDays =
+                countDifferenceInDaysBetweenToday(
+                    and: heating.date)
+                else { return "" }
             return createText(for: differenceInDays)
         }
-        
         return ""
     }
-
-  
-
-    //for request binding closure
-    enum RequestResult {
-        case success
-        case error
-    }
-    
-    private enum PrognosisState {
-        case tooEarly
-        case tooLate
-        case actual
-        case none
-    }
-    
 }
 
 
 //MARK: - Helpers
 extension MainViewViewModel {
 
-    private func heatingInfo(at index: Int) -> HeatingInfo? {
+    private func heatingInfo(
+        at index: Int) -> HeatingInfo? {
         guard let heatingInfos = heatingInfos,
-            index < heatingInfos.count else { return nil }
+            index < heatingInfos.count
+            else { return nil }
         return heatingInfos[index]
     }
     
-    private func cityTextWithPreposition(from cityText: String) -> String {
+    private func cityTextWithPreposition(
+        from cityText: String) -> String {
         if cityText.hasPrefix("Влади") {
             return "Во \(cityText)"
         } else {
@@ -139,19 +135,26 @@ extension MainViewViewModel {
     
     private func defaultString(for differenceInDays: Int) -> String {
         let daysToString = String(differenceInDays)
-        
         if daysToString.hasSuffix("1") {
             return "Через \(differenceInDays) день"
-        } else if daysToString.hasSuffix("2") || daysToString.hasSuffix("3") || daysToString.hasSuffix("4") {
+        } else if daysToString.hasSuffix("2")
+            || daysToString.hasSuffix("3")
+            || daysToString.hasSuffix("4") {
             return "Через \(differenceInDays) дня"
         } else {
             return "Через \(differenceInDays) дней"
         }
     }
-    
-    private func countDifferenceInDaysBetweenToday(and date: Date?) -> Int? {
+
+    private func countDifferenceInDaysBetweenToday(
+        and date: Date?) -> Int? {
         guard let date = date,
-            let differenceInDays = DataSource.shared.calendar.dateComponents([.day], from: DataSource.shared.todayDate, to: date).day else { return nil }
+            let differenceInDays =
+            DataSource.shared.calendar
+                .dateComponents([.day],
+                                from: DataSource.shared.todayDate,
+                                to: date).day
+            else { return nil }
         return differenceInDays + 1
     }
     
@@ -168,33 +171,35 @@ extension MainViewViewModel {
         }
     }
     
-    private func getPrognosisState(from heating: HeatingInfo?) -> PrognosisState {
-        
-        guard let heating = heating else { return .none }
-        
-        let isHeatingAlreadyDone = heating.isDayXToday == 1 ? true : false
-        let thereIsAHeatingDate = heating.date != nil ? true : false
-        
-        let tooEarlyForPrognosis = !isHeatingAlreadyDone && !thereIsAHeatingDate
-        let tooLateForPrognosis = isHeatingAlreadyDone && thereIsAHeatingDate
-        let thereIsAPrognosis = !isHeatingAlreadyDone && thereIsAHeatingDate
+    private func getPrognosisState(
+        from heating: HeatingInfo?) -> PrognosisState {
+        guard let heating = heating
+            else { return .none }
+        let isHeatingAlreadyDone =
+            heating.isDayXToday == 1 ? true : false
+        let thereIsAHeatingDate =
+            heating.date != nil ? true : false
+        let tooEarlyForPrognosis =
+            !isHeatingAlreadyDone && !thereIsAHeatingDate
+        let tooLateForPrognosis =
+            isHeatingAlreadyDone && thereIsAHeatingDate
+        let thereIsAPrognosis =
+            !isHeatingAlreadyDone && thereIsAHeatingDate
         
         if tooEarlyForPrognosis {
             return .tooEarly
         }
-        
         if tooLateForPrognosis {
             return .tooLate
         }
-        
         if thereIsAPrognosis {
             return .actual
         }
-        
         return .none
     }
     
-    private func tooLatePrognosis(for season: String, and date: String) -> String {
+    private func tooLatePrognosis(for season: String,
+                                  and date: String) -> String {
         if season == "spring"  {
             return "отопление должны были отключить \(date)"
         } else {
@@ -210,18 +215,12 @@ extension MainViewViewModel {
         }
     }
     
-    private func prognosis(for season: String, and date: String) -> String {
+    private func prognosis(for season: String,
+                           and date: String) -> String {
         if season == "spring"  {
             return "отопление отключится \(date)"
         } else {
             return "отопление включится \(date)"
         }
     }
-    
-    
 }
-    
-    
-
-    
-

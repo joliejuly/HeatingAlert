@@ -8,8 +8,6 @@ import UIKit
 
 
 final class MainViewController: UIViewController {
-    
-    //MARK: - Outlets
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var heatingDate: UILabel!
     @IBOutlet weak var daysRemained: UILabel!
@@ -17,28 +15,20 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var waitingLabel: UILabel!
     @IBOutlet weak var otherCityButton: UIButton!
-    
     @IBOutlet weak var radiator: UIButton!
-    
-    //MARK: - Properties
+
+    var coordinator: Coordinator?
     lazy var viewModel: MainViewViewModel = {
         return MainViewViewModel()
     }()
-    
-    var coordinator: Coordinator?
-    
-    //MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel.fetchHeatingData()
-        
         setUpViews()
         setUpBindings()
-        
         updateUI(with: viewModel.savedCity)
         setWaitingLabels()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,60 +43,62 @@ final class MainViewController: UIViewController {
     
     
     private func animateRadiator() {
-        
         let rotate = CGAffineTransform(rotationAngle: 360)
-        let translate = CGAffineTransform(translationX: -120, y: -120)
-        let scale = CGAffineTransform(scaleX: 2, y: 2)
-        radiator.transform = rotate.concatenating(translate).concatenating(scale)
-        
-        UIView.animate(withDuration: 3, delay: 2, usingSpringWithDamping: 0.8,initialSpringVelocity: 0.5, options: [.autoreverse,.curveEaseInOut], animations: {
-            self.radiator.transform = .identity
-        }, completion: nil)
+        let translate = CGAffineTransform(translationX: -120,
+                                          y: -120)
+        let scale = CGAffineTransform(scaleX: 2,
+                                      y: 2)
+        radiator.transform = rotate
+            .concatenating(translate)
+            .concatenating(scale)
+        UIView.animate(withDuration: 3,
+                       delay: 2,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 0.5,
+                       options: [.autoreverse,.curveEaseInOut],
+                       animations: {
+                            self.radiator.transform = .identity
+                       },
+                       completion: nil)
     }
 
-    
     @IBAction func chooseCityTapped(_ sender: UIButton) {
         coordinator?.showCitiesScreen()
     }
-    
     
     @IBAction func aboutAreaTapped(_ sender: UIButton) {
         coordinator?.showAboutScreen()
     }
     
-    
-    @IBAction func swipeGestureOccured(_ sender: UISwipeGestureRecognizer) {
-        
+    @IBAction func swipeGestureOccured(
+        _ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
         case .up: coordinator?.showAboutScreen()
         case .left: coordinator?.showCitiesScreen()
         default: break
         }
-        
     }
-    
     
     private func setUpViews() {
         otherCityButton.layer.cornerRadius = 9
     }
     
     private func setUpBindings() {
-        viewModel.didFinishDataRequest = { [weak self] requestResult in
-            
+        viewModel.didFinishDataRequest = { [weak self]
+            requestResult in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 switch requestResult {
                 case .success:
-                    
-                    if let city = self?.viewModel.selectedCity {
-                        self?.updateUI(with: city)
-                    } else if let city = self?.viewModel.savedCity {
-                        self?.updateUI(with: city)
+                    if let city = self.viewModel.selectedCity {
+                        self.updateUI(with: city)
+                    } else if let city = self.viewModel.savedCity {
+                        self.updateUI(with: city)
                     } else {
                         return
                     }
-                    
                 case .error:
-                    self?.setWaitingLabels()
+                    self.setWaitingLabels()
                 }
             }
         }
@@ -115,15 +107,14 @@ final class MainViewController: UIViewController {
     //MARK: - Helpers
    
     public func updateUI(with selectedCity: String) {
-    
         hideWaitingLabels()
-        
         city.font = heatingDate.font
-        
-        let textForCityLabel = viewModel.textForCityLabel(for: selectedCity)
-        let textForDateLabel = viewModel.dateAsString()
-        let textForRemainedDaysLabel = viewModel.daysRemained()
-        
+        let textForCityLabel = viewModel
+            .textForCityLabel(for: selectedCity)
+        let textForDateLabel = viewModel
+            .dateAsString()
+        let textForRemainedDaysLabel = viewModel
+            .daysRemained()
         setDateLabel(with: textForDateLabel)
         setCityLabel(with: textForCityLabel)
         setRemainedDaysLabel(with: textForRemainedDaysLabel)
@@ -169,12 +160,16 @@ final class MainViewController: UIViewController {
     
     //MARK: - Navigation
     @IBAction func unwindToMainViewController(_ segue: UIStoryboardSegue) {
-        if segue.identifier == PropertyKeys.selectCitySegue
+        if segue.identifier == PropertyKeys
+            .selectCitySegue
         {
             guard let citiesTableViewController = segue.source as? CitiesTableViewController,
-                let newCity = citiesTableViewController.selectedCity else { return }
+                let newCity = citiesTableViewController
+                    .selectedCity
+                else { return }
             viewModel.selectedCity = newCity
-            guard let selCity = viewModel.selectedCity else { return }
+            guard let selCity = viewModel.selectedCity
+                else { return }
             updateUI(with: selCity)
             
         }

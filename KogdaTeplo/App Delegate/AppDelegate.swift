@@ -15,22 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coordinator: Coordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let nav = mainStoryboard.instantiateInitialViewController() as? UINavigationController else { fatalError("Can't convert initial vc to UINavigationController") }
-        
+        let mainStoryboard = UIStoryboard(name: "Main",
+                                          bundle: nil)
+        guard
+            let nav = mainStoryboard.instantiateInitialViewController()
+                as? UINavigationController
+            else { return true }
         window = UIWindow(frame: UIScreen.main.bounds)
-    
         window?.rootViewController = nav
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        
         coordinator = Coordinator(router: nav)
         coordinator?.start()
-        
         return true
     }
-
 
     func applicationWillResignActive(_ application: UIApplication) {
         HeatingInfo.saveDataOnDisk()
@@ -39,17 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         HeatingInfo.saveDataOnDisk()
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         HeatingInfo.saveDataOnDisk()
     }
-
-
 }
-
