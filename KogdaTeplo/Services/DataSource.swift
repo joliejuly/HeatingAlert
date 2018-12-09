@@ -32,21 +32,27 @@ final class DataSource {
     
     lazy var regionsInRussian: [String]? = {
         do {
-            if let path = Bundle.main.path(forResource: "regions", ofType: "txt"){
-                let data = try String(contentsOfFile:path, encoding: .utf8)
-                let tmpRegionsInRussian = data.components(separatedBy: "\n")
+            if let path = Bundle.main.path(forResource: "regions",
+                                           ofType: "txt") {
+                let data = try String(contentsOfFile:path,
+                                      encoding: .utf8)
+                let tmpRegionsInRussian = data.components(
+                    separatedBy: "\n")
                 return tmpRegionsInRussian
             }
         } catch let err as NSError { print(err) }
         return nil
     }()
     
-    //"Москве", "Челябинске" и тд
     lazy var regionsInRussianForUse: [String]? = {
         do {
-            if let path = Bundle.main.path(forResource: "regions_for_use", ofType: "txt"){
-                let data = try String(contentsOfFile:path, encoding: .utf8)
-                let tmpRegionsInRussianForUse = data.components(separatedBy: "\n")
+            if let path = Bundle.main.path(
+                forResource: "regions_for_use",
+                ofType: "txt"){
+                let data = try String(contentsOfFile:path,
+                                      encoding: .utf8)
+                let tmpRegionsInRussianForUse = data.components(
+                    separatedBy: "\n")
                 return tmpRegionsInRussianForUse
             }
         } catch let err as NSError { print(err) }
@@ -55,9 +61,12 @@ final class DataSource {
     
     lazy var regionsInEnglish: [String]? = {
         do {
-            if let path = Bundle.main.path(forResource: "regions_en", ofType: "txt") {
-                let data = try String(contentsOfFile:path, encoding: .utf8)
-                let regionsInEnglish = data.components(separatedBy: "\n")
+            if let path = Bundle.main.path(forResource: "regions_en",
+                                           ofType: "txt") {
+                let data = try String(contentsOfFile: path,
+                                      encoding: .utf8)
+                let regionsInEnglish = data.components(
+                    separatedBy: "\n")
                 return regionsInEnglish
             }
         } catch let err as NSError { print(err) }

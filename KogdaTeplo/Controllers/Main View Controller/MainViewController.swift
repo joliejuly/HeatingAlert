@@ -86,19 +86,18 @@ final class MainViewController: UIViewController {
     private func setUpBindings() {
         viewModel.didFinishDataRequest = { [weak self]
             requestResult in
-            guard let self = self else { return }
             DispatchQueue.main.async {
                 switch requestResult {
                 case .success:
-                    if let city = self.viewModel.selectedCity {
-                        self.updateUI(with: city)
-                    } else if let city = self.viewModel.savedCity {
-                        self.updateUI(with: city)
+                    if let city = self?.viewModel.selectedCity {
+                        self?.updateUI(with: city)
+                    } else if let city = self?.viewModel.savedCity {
+                        self?.updateUI(with: city)
                     } else {
                         return
                     }
                 case .error:
-                    self.setWaitingLabels()
+                    self?.setWaitingLabels()
                 }
             }
         }

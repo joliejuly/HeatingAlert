@@ -14,6 +14,4 @@ final class AboutViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
     }
-        
-
 }

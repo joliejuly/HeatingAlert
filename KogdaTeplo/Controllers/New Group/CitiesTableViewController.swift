@@ -7,42 +7,46 @@
 
 import UIKit
 
-final class CitiesTableViewController: UITableViewController, UISearchResultsUpdating {
+struct PropertyKeys {
+    static let cityCell = "cityCell"
+    static let selectCitySegue = "selectCitySegue"
+}
 
-    //MARK: - Globals
-    struct PropertyKeys {
-        static let cityCell = "cityCell"
-        static let selectCitySegue = "selectCitySegue"
-    }
-    
+final class CitiesTableViewController: UITableViewController {
+
+    var coordinator: Coordinator?
+    var didSelectCity: ((String?) -> Void)?
+    var filteredData = [String]()
     var selectedCity: String? {
         didSet {
             HeatingInfo.selectedCity = selectedCity
             HeatingInfo.saveDataOnDisk()
         }
     }
-    
-    var coordinator: Coordinator?
-    
-    var didSelectCity: ((String?) -> Void)?
-    
-    lazy var searchController: UISearchController = {
-        // nil means that searchController will use this view controller to display the search results
-        let tmpSearchController = UISearchController(searchResultsController: nil)
-        tmpSearchController.dimsBackgroundDuringPresentation = false //important!
-        tmpSearchController.hidesNavigationBarDuringPresentation = false
-        tmpSearchController.searchBar.sizeToFit()
-        tmpSearchController.searchBar.searchBarStyle = .prominent //no color, transparent
-        tmpSearchController.searchBar.placeholder = "например, Москва"
-        return tmpSearchController
+    var cities: [String] = {
+        guard let newCities =
+            DataSource.shared
+                .regionsInRussian
+            else { return [] }
+        return newCities
     }()
     
-    //search
-    var filteredData: [String]!
-    
-    var cities: [String] = {
-        guard let newCities = DataSource.shared.regionsInRussian else { return [] }
-        return newCities
+    lazy var searchController: UISearchController = {
+        // nil means that searchController will use
+        // this view controller to display the search results
+        let tmpSearchController =
+            UISearchController(searchResultsController: nil)
+        tmpSearchController
+            .dimsBackgroundDuringPresentation = false
+        tmpSearchController
+            .hidesNavigationBarDuringPresentation = false
+        tmpSearchController
+            .searchBar.sizeToFit()
+        tmpSearchController
+            .searchBar.searchBarStyle = .prominent //transparent
+        tmpSearchController
+            .searchBar.placeholder = "например, Москва"
+        return tmpSearchController
     }()
     
     override func viewDidLoad() {
@@ -54,34 +58,28 @@ final class CitiesTableViewController: UITableViewController, UISearchResultsUpd
     
     private func setUpViews() {
         navigationController?.navigationBar.isHidden = false
-        
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
-        navigationItem.searchController?.searchBar.barTintColor = .white
-        navigationItem.searchController?.searchBar.isTranslucent = false
+        navigationItem.searchController?
+            .searchBar.barTintColor = .white
+        navigationItem.searchController?
+            .searchBar.isTranslucent = false
     }
-
-
+    
     @IBAction func swipeGestureOccured(_ sender: UISwipeGestureRecognizer) {
         dismissWithAnimation()
     }
-    
-    // MARK: - Conforming to UISearchResultsUpdating protocol
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            filteredData = searchText.isEmpty ? cities : cities.filter( {(dataString: String) -> Bool in
-                return dataString.range(of: searchText, options: [.caseInsensitive, .anchored]) != nil
-            })
-            tableView.reloadData()
-        }
-    }
-    
+
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
         return filteredData.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.cityCell, for: indexPath)
         cell.textLabel?.text = filteredData[indexPath.row]
         cell.textLabel?.adjustsFontSizeToFitWidth = true
@@ -91,10 +89,11 @@ final class CitiesTableViewController: UITableViewController, UISearchResultsUpd
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
         selectedCity = filteredData[indexPath.row]
         navigationItem.searchController?.isActive = false
-
         dismissWithAnimation()
         coordinator?.selectedCity = selectedCity
     }
@@ -104,10 +103,23 @@ final class CitiesTableViewController: UITableViewController, UISearchResultsUpd
         transition.duration = 0.4
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         transition.type = kCATransitionMoveIn
-        
         navigationController?.view.layer.add(transition, forKey: kCATransition)
         navigationController?.popViewController(animated: false)
     }
-    
-    
+}
+
+// MARK: - Conforming to UISearchResultsUpdating protocol
+
+extension CitiesTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(
+        for searchController: UISearchController) {
+        if let searchText = searchController
+            .searchBar.text {
+            filteredData =
+                searchText.isEmpty ? cities : cities.filter( {(dataString: String) -> Bool in
+                return dataString.range(of: searchText, options: [.caseInsensitive, .anchored]) != nil
+            })
+            tableView.reloadData()
+        }
+    }
 }
