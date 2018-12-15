@@ -92,6 +92,8 @@ final class CitiesTableViewController: UITableViewController {
     override func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < filteredData.count
+            else { return }
         selectedCity = filteredData[indexPath.row]
         navigationItem.searchController?.isActive = false
         dismissWithAnimation()
@@ -108,17 +110,16 @@ final class CitiesTableViewController: UITableViewController {
     }
 }
 
-// MARK: - Conforming to UISearchResultsUpdating protocol
-
 extension CitiesTableViewController: UISearchResultsUpdating {
     func updateSearchResults(
         for searchController: UISearchController) {
         if let searchText = searchController
             .searchBar.text {
             filteredData =
-                searchText.isEmpty ? cities : cities.filter( {(dataString: String) -> Bool in
+                searchText.isEmpty ? cities :
+                cities.filter {(dataString: String) -> Bool in
                 return dataString.range(of: searchText, options: [.caseInsensitive, .anchored]) != nil
-            })
+            }
             tableView.reloadData()
         }
     }
