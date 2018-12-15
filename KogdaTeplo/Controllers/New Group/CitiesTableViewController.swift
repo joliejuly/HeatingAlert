@@ -69,8 +69,7 @@ final class CitiesTableViewController: UITableViewController {
     @IBAction func swipeGestureOccured(_ sender: UISwipeGestureRecognizer) {
         dismissWithAnimation()
     }
-
-    // MARK: - Table view data source
+    
     override func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
@@ -80,12 +79,18 @@ final class CitiesTableViewController: UITableViewController {
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.cityCell, for: indexPath)
+        let cell = tableView
+            .dequeueReusableCell(
+                withIdentifier: PropertyKeys.cityCell,
+                for: indexPath
+        )
+        guard indexPath.row < filteredData.count
+            else { return }
         cell.textLabel?.text = filteredData[indexPath.row]
         cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.highlightedTextColor = .white
         cell.selectedBackgroundView = UIView()
-        cell.selectedBackgroundView?.backgroundColor = UIColor.mainBlue
+        cell.selectedBackgroundView?.backgroundColor = .mainBlue
         return cell
     }
 
