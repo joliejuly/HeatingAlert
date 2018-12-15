@@ -66,7 +66,8 @@ final class CitiesTableViewController: UITableViewController {
             .searchBar.isTranslucent = false
     }
     
-    @IBAction func swipeGestureOccured(_ sender: UISwipeGestureRecognizer) {
+    @IBAction func swipeGestureOccured(
+        _ sender: UISwipeGestureRecognizer) {
         dismissWithAnimation()
     }
     
@@ -108,9 +109,11 @@ final class CitiesTableViewController: UITableViewController {
     private func dismissWithAnimation() {
         let transition = CATransition()
         transition.duration = 0.4
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.timingFunction =
+            CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         transition.type = kCATransitionMoveIn
-        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        navigationController?.view.layer.add(transition,
+                                             forKey: kCATransition)
         navigationController?.popViewController(animated: false)
     }
 }
@@ -123,7 +126,9 @@ extension CitiesTableViewController: UISearchResultsUpdating {
             filteredData =
                 searchText.isEmpty ? cities :
                 cities.filter {(dataString: String) -> Bool in
-                return dataString.range(of: searchText, options: [.caseInsensitive, .anchored]) != nil
+                return dataString.range(of: searchText,
+                                        options: [.caseInsensitive,
+                                                  .anchored]) != nil
             }
             tableView.reloadData()
         }
